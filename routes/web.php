@@ -80,3 +80,19 @@ Route::get("name/{name}",function($name){
 //IP validation e.g 255.255.255.255
 
 
+
+
+//////////Controller //
+
+use App\Http\Controllers\TestController;
+
+Route::get("name",[TestController::class,"get_name"]);
+Route::get("name_param/{name?}",[TestController::class,"name"]);
+
+use App\Http\Controllers\SingleController;
+
+Route::get("single",SingleController::class);
+
+
+
+
