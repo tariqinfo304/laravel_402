@@ -95,4 +95,12 @@ Route::get("single",SingleController::class);
 
 
 
+//Model//
+//Eloquent ORM => object relation mapper //
+
+use App\Http\Controllers\ORMController;
+Route::get("orm",[ORMController::class,"orm"]);
+
+
+
 
