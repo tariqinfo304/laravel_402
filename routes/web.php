@@ -100,6 +100,9 @@ Route::get("single",SingleController::class);
 
 use App\Http\Controllers\ORMController;
 Route::get("orm",[ORMController::class,"orm"]);
+Route::get("orm_create",[ORMController::class,"create"]);
+
+Route::get("orm_relation",[ORMController::class,"relation"]);
 
 
 
