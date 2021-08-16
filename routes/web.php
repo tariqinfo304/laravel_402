@@ -105,5 +105,7 @@ Route::get("orm_create",[ORMController::class,"create"]);
 Route::get("orm_relation",[ORMController::class,"relation"]);
 
 
+use App\Http\Controllers\ViewController;
+Route::get("view",[ViewController::class,"first"]);
 
 
