@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class ViewController extends Controller
 {
+
+    function layout()
+    {
+        //return view("layout/layout");
+        return view("child");
+    }
     function first()
     {
         $name_value="First Lecture Related to View Content";

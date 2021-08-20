@@ -109,3 +109,11 @@ use App\Http\Controllers\ViewController;
 Route::get("view",[ViewController::class,"first"]);
 
 
+Route::get("layout",[ViewController::class,"layout"]);
+
+
+use App\Http\Controllers\WebController;
+
+Route::get("web",[WebController::class,"index"]);
+Route::get("web/shop",[WebController::class,"shop"]);
+Route::get("web/product",[WebController::class,"product_detail"]);
