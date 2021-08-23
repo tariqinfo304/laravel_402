@@ -117,3 +117,8 @@ use App\Http\Controllers\WebController;
 Route::get("web",[WebController::class,"index"]);
 Route::get("web/shop",[WebController::class,"shop"]);
 Route::get("web/product",[WebController::class,"product_detail"]);
+
+
+use App\Http\Controllers\ProductController;
+
+Route::resource("web/products",ProductController::class);
