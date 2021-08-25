@@ -38,18 +38,32 @@
                         
                 @endif
                 
-
+                {{--
+                @if ($errors->any())
+                        @foreach($errors->all() as $row)
+                            <div class="alert alert-danger">{{$row}}</div>
+                        @endforeach
+                        
+                @endif
+                --}}
                     
                     @csrf()
                   <div class="form-group">
                     <label for="exampleInputEmail1">Product Name</label>
                     <input type="text" name="name" class="form-control" id="exampleInputEmail1"
-                    value="{{ $obj->name ?? '' }}"
-                     aria-describedby="emailHelp" placeholder="Enter Name"/>
+                    value="{{ $obj->name ?? old('name') }}"
+                     aria-describedby="emailHelp"  placeholder="Enter Name"/>
+
+                     @error("name")
+                        <div class="alert alert-danger">{{$message}}</div>
+                     @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Price</label>
-                    <input type="number" name="price" class="form-control" id="exampleInputPassword1" value="{{ $obj->price ?? '' }}" placeholder="Price">
+                    <input type="number" name="price" class="form-control" id="exampleInputPassword1" value="{{ $obj->price ?? old('price') }}" placeholder="Price">
+                    @error("price")
+                        <div class="alert alert-danger">{{$message}}</div>
+                     @enderror
                   </div>
 
                   @if(isset($delete))
