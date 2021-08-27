@@ -115,10 +115,27 @@ Route::get("layout",[ViewController::class,"layout"]);
 use App\Http\Controllers\WebController;
 
 Route::get("web",[WebController::class,"index"]);
-Route::get("web/shop",[WebController::class,"shop"]);
+
 Route::get("web/product",[WebController::class,"product_detail"]);
 
 
 use App\Http\Controllers\ProductController;
 
-Route::resource("web/products",ProductController::class);
+//Route::resource("web/products",ProductController::class);
+Route::get("web/shop",[WebController::class,"shop"]);
+
+
+Route::middleware(['test'])->group(function () {
+    
+    Route::resource("web/products",ProductController::class);
+
+});
+
+
+// Route::get("web/products",[WebController::class,"shop"])
+//     ->middleware("test");
+
+
+Route::get("web/login",[WebController::class,"login"]);
+Route::post("web/login",[WebController::class,"do_login"]);
+Route::get("web/logout",[WebController::class,"logout"]);
