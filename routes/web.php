@@ -139,3 +139,8 @@ Route::middleware(['test'])->group(function () {
 Route::get("web/login",[WebController::class,"login"]);
 Route::post("web/login",[WebController::class,"do_login"]);
 Route::get("web/logout",[WebController::class,"logout"]);
+
+
+use App\Http\Controllers\QueryBuilderController;
+
+Route::get("db",[QueryBuilderController::class,"crud"]);
