@@ -37,6 +37,33 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
+        // if($request->hasFile("product_image"))
+        // {
+        //    // dd($request->product_image);
+        //     //it will store data in public folder directly
+        //      echo $request->file('product_image')->store('product', ['disk' => 'local_public']);
+        //      die();
+        // }   
+
+        
+        // if ($request->file('product_image')->isValid()) {
+
+        //    // echo $request->product_image->extension();
+        //   //  echo $request->product_image->path();
+            
+        //     //Store
+        //     $path = $request->product_image->store("public");
+
+        //     $path = explode("public/",$path);
+
+        //     dd($path);
+        //     //Rename file name 
+        //    // $path = $request->product_image->storeAs("product","tariq.jpg");
+
+        //     echo $path ;
+        //     die();
+        // }  
+
         $request->validate([
 
             "name" => "required|min:5",
@@ -44,8 +71,17 @@ class ProductController extends Controller
         ]);
 
         $p = new Product();
+
         $p->name = $request->input("name");
         $p->price = $request->input("price");
+
+        if ($request->file('product_image')->isValid()) {
+
+            $path = "storage/".$request->product_image->store("public");
+            $path = explode("public/",$path);
+            $p->image ="storage/".$path[1];
+        }  
+
         $p->save();
 
         return redirect("web/products");

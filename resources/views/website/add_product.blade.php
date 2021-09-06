@@ -34,7 +34,7 @@
                     <form method="POST" action="{{ URL('web/products',$obj->id) }}">
                         @method("put")
                 @else
-                    <form method="POST" action="{{ URL('web/products') }}">
+                    <form enctype="multipart/form-data" method="POST" action="{{ URL('web/products') }}">
                         
                 @endif
                 
@@ -73,6 +73,8 @@
                   @elseif(isset($edit))
                     <button  type="submit" class="btn btn-primary">Edit Product</button>
                   @else
+
+                    <input type="file" class="form-control" name="product_image"/>
                     <button type="submit" class="btn btn-primary">Add Product</button>
                   @endif
                 </form>

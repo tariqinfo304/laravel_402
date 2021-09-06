@@ -33,6 +33,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
+                      <th>Image</th>
                       <th scope="col">Name</th>
                       <th scope="col">Price</th>
                       <th scope="col"> Action</th>
@@ -42,7 +43,8 @@
 
                     @foreach($listing as $row)
                         <tr>
-                          <th scope="row">{{ $row->id }}</th>
+                          <td scope="row">{{ $row->id }}</td>
+                          <td><img width="50px" src="{{ Asset($row->image) }}"/></td>
                           <td>{{ $row->name }}</td>
                           <td>{{ $row->price }}</td>
                           <td>
