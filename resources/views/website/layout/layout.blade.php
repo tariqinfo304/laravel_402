@@ -22,6 +22,7 @@
     <![endif]-->
     <!-- Latest jQuery form server -->
 
+    <script src="https://code.jquery.com/jquery.min.js"></script>
   </head>
   <body>
 

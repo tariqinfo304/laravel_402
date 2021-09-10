@@ -14,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+use App\Http\Controllers\APIController;
+
+Route::get("version",[APIController::class,"version"]);
+
+Route::get("product/{id?}",[APIController::class,"product_listing"]);
+
+Route::post("create_product",[APIController::class,"create_product"]);
+
+
+Route::get("api_call",[APIController::class,"call_api"]);
+
+

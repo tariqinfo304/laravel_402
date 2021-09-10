@@ -49,7 +49,9 @@
                           <td>{{ $row->price }}</td>
                           <td>
 
-                            <a href="{{ URL('web/products',$row->id) }}"><button>View</button></a>
+                          <!--   <a href="{{ URL('web/products',$row->id) }}"><button>View</button></a> -->
+
+                          <button onclick="get_product({{$row->id}})">View</button>
                             
                             <a href="{{ URL('web/products/'.$row->id.'/edit') }}"><button>Edit</button></a>
                             
@@ -64,4 +66,39 @@
             </div>
         </div>
     </div>
+
+
+<script type="text/javascript">
+
+
+    function get_product(id)
+    {
+        $.ajax({
+          method: "GET",
+          url: "http://localhost/laravel_402/public/api/product/"+id,
+          data: { name: "John", location: "Boston" }
+        }).done(function( data ) {
+
+            console.log(data);
+        }).error(function(error){
+            alert("Error");
+        });
+    
+    }
+
+    function get_all()
+    {   
+          $.ajax({
+      method: "GET",
+      url: "http://localhost/laravel_402/public/api/product",
+      data: { name: "John", location: "Boston" }
+    }).done(function( data ) {
+
+        console.log(data);
+    
+    });
+
+    }
+  
+</script>
 @endsection
